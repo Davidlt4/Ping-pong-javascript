@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ping pong</title>
+    <script src="pingpong.js"></script>
+    <style>
+        body{
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+</head>
+<body>
+
+
+    <svg width="2000" height="1000" id="dibujos">
+
+        <!--Dibujamos las "palas" y la pelota-->
+        <rect width="20" height="140"  x="40" y="200" style="fill:red" id="jug1"></rect>
+        <rect width="20" height="140" x="1560" y="200" style="fill:red" id="jug2"></rect>
+        <circle cx="800" cy="500" r="10" fill="white" id="pelota"></circle>
+        <rect  width="1600" height="800" style="stroke-width:5;stroke:white;fill:transparent" x="0" y="0" id="mesa"></rect>
+        <line x1="800" y1="800" x2="800" y2="-1600" stroke-width="5" stroke="white" />
+        <text id="puntJug1" x="700" y="40" font-size="30px" style="fill:rgb(231, 53, 255);">0</text>
+        <text x="50" y="40" style="fill:rgb(231, 53, 255);" font-size="30px">JUGADOR 1</text>
+        <text id="puntJug2" x="900" y="40" font-size="30px" style="fill:rgb(112, 253, 56);">0</text>
+        <text x="1350" y="40" style="fill:rgb(112, 253, 56);" font-size="30px">JUGADOR 2</text>
+
+    </svg>
+    
+</body>
+</html>
