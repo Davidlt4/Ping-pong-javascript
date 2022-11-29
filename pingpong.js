@@ -4,6 +4,8 @@
 var key=0;
 var puntJug2=0,puntJug1=0;
 
+
+//respecto a la pelota y los jugadores
 var pelota,posx,posy,X,Y,velX,velY,jug1,jug2,jug1X,jug1Y,jug2X,jug2Y,velocidadPelota,radio,dibujos;
 
 window.onload = ()=>
@@ -79,20 +81,34 @@ window.onload = ()=>
 
 
 function mover() {
+
+    //limitamos el movimiento del jugador 1 para que no salga de la pista
+
+    //por arriba
     
     if(key==1&&jug1Y>0){
         jug1Y-=velocidadPelota;
         jug1.setAttribute("y",jug1Y);
     }
 
+    //por abajo
+
    if(key==2&&jug1Y<660){
         jug1Y+=velocidadPelota;
         jug1.setAttribute("y",jug1Y);
     }
+
+    //limitamos el movimiento del jugador 2 para que no salga de la pista
+
+    //por arriba
+
     if(key==3&&jug2Y>0){
         jug2Y-=velocidadPelota;
         jug2.setAttribute("y",jug2Y);
     }
+
+    //por abajo
+
     if(key==4&&jug2Y<660){
         jug2Y+=velocidadPelota;
         jug2.setAttribute("y",jug2Y);
@@ -107,6 +123,8 @@ function hitbox(jugador){
 
     //contamos puntos
 
+    //Jugador 1
+
     if(jugador=="jugador1")
     {
         cont = parseInt(puntJug1.textContent);
@@ -116,6 +134,9 @@ function hitbox(jugador){
         posx=800;
         posy=400;
     }
+
+    //Jugador 2
+
     if(jugador=="jugador2")
     {
         cont = parseInt(puntJug2.textContent);
@@ -133,6 +154,8 @@ function dibuja(){
 
     var cY=posy-2.5;
     
+    //redireccionamos la pelota
+
    if(posx<(0+radio)||posx>(1600-radio)){
         X*= -1;
         if(posx<(0+radio))
@@ -149,6 +172,8 @@ function dibuja(){
         X*=-1;
     if(posx>=jug2X&&(cY>=jug2Y&&cY<=(jug2Y+140)))
         X*=-1;
+
+    //cambiamos la posicion x teniendo en cuenta el hitbox del jugador que le haya dado:
 
     posx+=X*velX;
     pelota.setAttribute("cx",posx);
